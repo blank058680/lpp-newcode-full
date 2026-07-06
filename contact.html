@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact &amp; Free Consultation — Level Plain Pro</title>
+<meta name="description" content="Start a free, confidential consultation. Multi-step intake — five minutes — secure and never shared.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.18"/>
+  <line x1="14" y1="46" x2="50" y2="46" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="40" cy="42" r="2" fill="#C9A227"/>
+  <path d="M22 14 L22 46 L42 46" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" fill="none"/>
+  <line x1="18" y1="14.5" x2="26" y2="14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+</svg>
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="process.html">How it Works</a>
+        <a href="results.html">Results</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-outline btn-sm">Sign in</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Free Consultation <span class="btn-arrow">→</span></a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+<section class="hero-band page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span><span>Contact</span>
+    </nav>
+    <span class="eyebrow on-dark">Free Consultation</span>
+    <h1>Tell us what happened. <span class="accent">In your own words.</span></h1>
+    <p class="lead">Five minutes. Encrypted. Reviewed by a senior team member, not a bot. We'll respond inside business hours within sixty minutes.</p>
+  </div>
+</section>
+
+<section style="background: var(--bg);">
+  <div class="container">
+    <div class="intake-grid">
+      <!-- ============ FORM ============ -->
+      <form class="intake" id="intakeForm" onsubmit="event.preventDefault(); document.getElementById('intakeSuccess').hidden=false; this.hidden=true;">
+
+        <div class="stepper" data-stepper aria-label="Form progress">
+          <span class="pill active"><span class="n">1</span> Situation</span>
+          <span class="pill"><span class="n">2</span> Loss details</span>
+          <span class="pill"><span class="n">3</span> Contact</span>
+        </div>
+
+        <h2 style="margin-bottom: 8px; font-size: clamp(22px, 1.2rem + 1vw, 30px);">Step 1 of 3 — Situation</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">All fields optional except where marked. Switch back to a previous step at any time.</p>
+
+        <div class="field">
+          <label for="situation">What happened? <span style="color: var(--alert-blue);">*</span></label>
+          <select id="situation" required>
+            <option value="">Pick the closest match…</option>
+            <option>Crypto or digital-asset loss</option>
+            <option>Investment fraud / fake brokerage</option>
+            <option>Wire transfer / bank fraud</option>
+            <option>Romance or pig-butchering scam</option>
+            <option>Internal embezzlement (corporate)</option>
+            <option>Vendor / supply-chain fraud</option>
+            <option>Shareholder dispute</option>
+            <option>Debt or collections issue</option>
+            <option>Credit-record / sanctions issue</option>
+            <option>Other — I'll explain</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="amount">Approximate amount lost</label>
+            <input type="text" id="amount" placeholder="e.g. $84,000">
+          </div>
+          <div class="field">
+            <label for="when">When did it occur?</label>
+            <input type="text" id="when" placeholder="DD / MM / YYYY (or roughly)">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="story">What would you like us to know?</label>
+          <textarea id="story" placeholder="A few sentences in your own words. Don't worry about format — we'll ask follow-up questions on the call."></textarea>
+          <span class="hint">Encrypted in transit and at rest. Only the team reviewing your case can read this.</span>
+        </div>
+
+        <h3 style="margin-top: 32px; font-size: 20px;">Contact</h3>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your name <span style="color: var(--alert-blue);">*</span></label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span style="color: var(--alert-blue);">*</span></label>
+            <input type="email" id="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" placeholder="+44 …">
+          </div>
+          <div class="field">
+            <label for="best-time">Best time to call</label>
+            <select id="best-time">
+              <option>Anytime business hours</option>
+              <option>Mornings (UK)</option>
+              <option>Afternoons (UK)</option>
+              <option>Mornings (US East)</option>
+              <option>Afternoons (US East)</option>
+              <option>Evenings — I'll explain in notes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I understand this submission does not create a client relationship. Information shared is treated confidentially. I consent to Level Plain Pro contacting me about my enquiry.</label>
+        </div>
+
+        <div class="intake-actions">
+          <button type="button" class="btn btn-outline">Save &amp; continue later</button>
+          <button type="submit" class="btn btn-primary">Send securely <span class="btn-arrow">→</span></button>
+        </div>
+      </form>
+
+      <!-- ============ SUCCESS ============ -->
+      <div id="intakeSuccess" class="intake" hidden style="text-align: center;">
+        <div style="display:inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--gold-glow); color: var(--forest); margin-bottom: 18px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2>Received. We'll be in touch.</h2>
+        <p style="color: var(--text-muted); margin-top: 12px;">A senior team member will respond inside business hours within sixty minutes — usually faster.</p>
+        <p style="color: var(--text-muted); margin-top: 8px; font-size: 14px;">Reference: <strong style="color: var(--navy); font-family: var(--serif);">LP-2026-INT-2018</strong></p>
+      </div>
+
+      <!-- ============ SIDEBAR ============ -->
+      <aside class="reassure" aria-label="What to expect">
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Encrypted submission
+          </div>
+          <h4>What happens next?</h4>
+          <p>A senior team member reads your message — not a script, not an algorithm — and responds inside business hours within 60 minutes. We may ask one or two clarifying questions, then book a 30-minute call at a time that suits you.</p>
+        </div>
+
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"/></svg>
+            Confidential
+          </div>
+          <h4>Privacy first</h4>
+          <p>Submissions are encrypted in transit and at rest. NDA available on request before the consultation. We'll never share, publish, or reference your case without your written consent.</p>
+        </div>
+
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+            Other ways to reach us
+          </div>
+          <h4>Prefer not to use the form?</h4>
+          <p style="margin-bottom: 10px;">Email <a href="mailto:hello@levelplainpro.com" style="color: var(--forest); font-weight: 600;">hello@levelplainpro.com</a><br>
+          Or call <a href="tel:+442000000000" style="color: var(--forest); font-weight: 600;">+44 (0) 20 0000 0000</a></p>
+          <p>For active wire-fraud emergencies, call the line directly — even outside business hours.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.18"/>
+  <line x1="14" y1="46" x2="50" y2="46" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="40" cy="42" r="2" fill="#C9A227"/>
+  <path d="M22 14 L22 46 L42 46" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" fill="none"/>
+  <line x1="18" y1="14.5" x2="26" y2="14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+</svg>
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+          <p>Stay protected. Subscribe to our weekly scam-alert digest — delivered every Tuesday.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services-crypto.html">Crypto Recovery</a></li>
+            <li><a href="services-investment.html">Investment Fraud</a></li>
+            <li><a href="services-wire.html">Wire Transfers</a></li>
+            <li><a href="services-corporate.html">Corporate Recovery</a></li>
+            <li><a href="services-debt.html">Debt Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Experts</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="about.html#press">Press &amp; Media</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog &amp; Articles</a></li>
+            <li><a href="resources.html#alerts">Scam Alerts</a></li>
+            <li><a href="resources.html#faq">FAQs</a></li>
+            <li><a href="resources.html#glossary">Glossary</a></li>
+            <li><a href="contact.html">Free Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal.html#privacy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms">Terms of Service</a></li>
+            <li><a href="legal.html#confidentiality">Confidentiality</a></li>
+            <li><a href="legal.html#disclaimers">Disclaimers</a></li>
+            <li><a href="legal.html#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>© 2026 Level Plain Pro. All rights reserved. · hello@levelplainpro.com · +44 (0) 20 0000 0000</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X / Twitter">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
