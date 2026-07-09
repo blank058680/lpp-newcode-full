@@ -79,7 +79,7 @@
 
     <div class="case-list">
 
-      <a class="case-row-card" href="#case-1">
+      <button class="case-row-card" type="button" data-case="1" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$2.4M</div>
           <div class="case-amount-sub">Recovered · 9 weeks</div>
@@ -89,9 +89,9 @@
           <p>A property closing wire was redirected via a spoofed email. Same-day SWIFT recall plus beneficiary-bank engagement froze 92% of funds before they moved.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-2">
+      <button class="case-row-card" type="button" data-case="2" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$840K</div>
           <div class="case-amount-sub">Recovered · 14 weeks</div>
@@ -101,9 +101,9 @@
           <p>USDT funds traced through three exchanges in two jurisdictions. Two regulated venues froze remaining balances pending civil claim.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-3">
+      <button class="case-row-card" type="button" data-case="3" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$5.1M</div>
           <div class="case-amount-sub">Recovered · 11 months</div>
@@ -113,9 +113,9 @@
           <p>Forensic ledger work revealed phantom-vendor scheme spanning 4 years. Coordinated criminal referral with civil restitution.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-4">
+      <button class="case-row-card" type="button" data-case="4" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$1.7M</div>
           <div class="case-amount-sub">Recovered · 6 months</div>
@@ -125,9 +125,9 @@
           <p>Client joined a coordinated claim of 47 victims. Estate-administrator distribution returned 73% of capital.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-5">
+      <button class="case-row-card" type="button" data-case="5" aria-haspopup="dialog">
         <div>
           <div class="case-amount">£420K</div>
           <div class="case-amount-sub">Recovered · 5 weeks</div>
@@ -137,9 +137,9 @@
           <p>UK APP voluntary code reimbursement after initial denial. Escalation to Financial Ombudsman delivered full repayment.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-6">
+      <button class="case-row-card" type="button" data-case="6" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$3.2M</div>
           <div class="case-amount-sub">Recovered · 18 months</div>
@@ -149,9 +149,9 @@
           <p>Client held a US judgment unenforced for two years. We traced assets to UAE and BVI, secured Mareva-style orders, and enforced.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
-      <a class="case-row-card" href="#case-7">
+      <button class="case-row-card" type="button" data-case="7" aria-haspopup="dialog">
         <div>
           <div class="case-amount">$680K</div>
           <div class="case-amount-sub">Recovered · 10 weeks</div>
@@ -161,11 +161,30 @@
           <p>Funds traced to operating entity in Southeast Asia. Civil claim plus exchange engagement returned 89% of principal.</p>
         </div>
         <div class="arrow">→</div>
-      </a>
+      </button>
 
     </div>
   </div>
 </section>
+
+<div class="case-modal-overlay" id="caseModalOverlay" hidden>
+  <div class="case-modal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle" tabindex="-1">
+    <button class="case-modal-close" id="caseModalClose" type="button" aria-label="Close">&times;</button>
+    <div class="case-modal-head">
+      <span class="case-modal-tag" id="caseModalTag"></span>
+      <div class="case-modal-figures">
+        <span class="case-modal-amount" id="caseModalAmount"></span>
+        <span class="case-modal-sub" id="caseModalSub"></span>
+      </div>
+      <h3 id="caseModalTitle"></h3>
+    </div>
+    <div class="case-modal-body" id="caseModalBody"></div>
+    <div class="case-modal-foot">
+      <p>Every case is anonymized. Names, dates, and identifying details are altered to protect client confidentiality.</p>
+      <a href="contact.html" class="btn btn-primary btn-sm">Start your case <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</div>
 
 <section style="background: var(--white);">
   <div class="container">
