@@ -37,6 +37,42 @@
     });
   }
 
+  // EmailJS config — replace with your own values from emailjs.com (Account > General
+  // for the public key, Email Services for the service ID, Email Templates for the template ID).
+  var EMAILJS_PUBLIC_KEY = "IEaD9FOwZLGmobTWZ";
+  var EMAILJS_SERVICE_ID = "service_c65y2pz";
+  var EMAILJS_TEMPLATE_ID = "template_xhdhiti";
+
+  var intakeForm = document.getElementById("intakeForm");
+  if (intakeForm && window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    var intakeSuccess = document.getElementById("intakeSuccess");
+    var intakeError = document.getElementById("intakeError");
+    var submitBtn = intakeForm.querySelector('button[type="submit"]');
+    var submitBtnDefaultHTML = submitBtn.innerHTML;
+
+    intakeForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (intakeError) intakeError.style.display = "none";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, intakeForm).then(
+        function () {
+          intakeSuccess.hidden = false;
+          intakeForm.hidden = true;
+        },
+        function (error) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitBtnDefaultHTML;
+          if (intakeError) intakeError.style.display = "block";
+          console.error("EmailJS error:", error);
+        }
+      );
+    });
+  }
+
   var caseStories = {
     "1": {
       tag: "Wire Fraud",

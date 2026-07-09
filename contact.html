@@ -62,7 +62,7 @@
   <div class="container">
     <div class="intake-grid">
       <!-- ============ FORM ============ -->
-      <form class="intake" id="intakeForm" onsubmit="event.preventDefault(); document.getElementById('intakeSuccess').hidden=false; this.hidden=true;">
+      <form class="intake" id="intakeForm">
 
         <div class="stepper" data-stepper aria-label="Form progress">
           <span class="pill active"><span class="n">1</span> Situation</span>
@@ -75,7 +75,7 @@
 
         <div class="field">
           <label for="situation">What happened? <span style="color: var(--alert-blue);">*</span></label>
-          <select id="situation" required>
+          <select id="situation" name="situation" required>
             <option value="">Pick the closest match…</option>
             <option>Crypto or digital-asset loss</option>
             <option>Investment fraud / fake brokerage</option>
@@ -93,17 +93,17 @@
         <div class="field-row">
           <div class="field">
             <label for="amount">Approximate amount lost</label>
-            <input type="text" id="amount" placeholder="e.g. $84,000">
+            <input type="text" id="amount" name="amount" placeholder="e.g. $84,000">
           </div>
           <div class="field">
             <label for="when">When did it occur?</label>
-            <input type="text" id="when" placeholder="DD / MM / YYYY (or roughly)">
+            <input type="text" id="when" name="when" placeholder="DD / MM / YYYY (or roughly)">
           </div>
         </div>
 
         <div class="field">
           <label for="story">What would you like us to know?</label>
-          <textarea id="story" placeholder="A few sentences in your own words. Don't worry about format we'll ask follow-up questions on the call."></textarea>
+          <textarea id="story" name="story" placeholder="A few sentences in your own words. Don't worry about format we'll ask follow-up questions on the call."></textarea>
           <span class="hint">Encrypted in transit and at rest. Only the team reviewing your case can read this.</span>
         </div>
 
@@ -112,22 +112,22 @@
         <div class="field-row">
           <div class="field">
             <label for="name">Your name <span style="color: var(--alert-blue);">*</span></label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="user_name" required>
           </div>
           <div class="field">
             <label for="email">Email <span style="color: var(--alert-blue);">*</span></label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="user_email" required>
           </div>
         </div>
 
         <div class="field-row">
           <div class="field">
             <label for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" placeholder="+44 …">
+            <input type="tel" id="phone" name="phone" placeholder="+44 …">
           </div>
           <div class="field">
             <label for="best-time">Best time to call</label>
-            <select id="best-time">
+            <select id="best-time" name="best_time">
               <option>Anytime business hours</option>
               <option>Mornings (UK)</option>
               <option>Afternoons (UK)</option>
@@ -142,6 +142,8 @@
           <input type="checkbox" id="consent" required>
           <label for="consent">I understand this submission does not create a client relationship. Information shared is treated confidentially. I consent to Level Plain Pro contacting me about my enquiry.</label>
         </div>
+
+        <p id="intakeError" class="hint" style="color: var(--alert-blue); display: none; margin-bottom: 12px;">Something went wrong sending your message. Please try again, or email <a href="mailto:hello@levelplainpro.com" style="color: inherit;">hello@levelplainpro.com</a> directly.</p>
 
         <div class="intake-actions">
           <button type="button" class="btn btn-outline">Save &amp; continue later</button>
@@ -272,6 +274,7 @@
       </div>
     </div>
   </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 
   <!--Start of Tawk.to Script-->
