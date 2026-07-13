@@ -37,39 +37,62 @@
     });
   }
 
-  // EmailJS config — replace with your own values from emailjs.com (Account > General
-  // for the public key, Email Services for the service ID, Email Templates for the template ID).
+  // EmailJS config — replace template IDs with your own values from emailjs.com.
+  // This keeps one shared account/service and allows separate templates by form type.
   var EMAILJS_PUBLIC_KEY = "IEaD9FOwZLGmobTWZ";
   var EMAILJS_SERVICE_ID = "service_c65y2pz";
-  var EMAILJS_TEMPLATE_ID = "template_xhdhiti";
+  var EMAILJS_TEMPLATE_ID_INTAKE = "template_xhdhiti";
+  var EMAILJS_TEMPLATE_ID_GRANTS = "template_yuofq12";
 
-  var intakeForm = document.getElementById("intakeForm");
-  if (intakeForm && window.emailjs) {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  var bindEmailForm = function (config) {
+    var form = document.getElementById(config.formId);
+    if (!form) return;
 
-    var intakeSuccess = document.getElementById("intakeSuccess");
-    var intakeError = document.getElementById("intakeError");
-    var submitBtn = intakeForm.querySelector('button[type="submit"]');
-    var submitBtnDefaultHTML = submitBtn.innerHTML;
+    var successEl = document.getElementById(config.successId);
+    var errorEl = document.getElementById(config.errorId);
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var submitBtnDefaultHTML = submitBtn ? submitBtn.innerHTML : "Submit";
 
-    intakeForm.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (intakeError) intakeError.style.display = "none";
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending…";
+      if (errorEl) errorEl.style.display = "none";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
 
-      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, intakeForm).then(
+      emailjs.sendForm(EMAILJS_SERVICE_ID, config.templateId, form).then(
         function () {
-          intakeSuccess.hidden = false;
-          intakeForm.hidden = true;
+          if (successEl) successEl.hidden = false;
+          form.hidden = true;
         },
         function (error) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = submitBtnDefaultHTML;
-          if (intakeError) intakeError.style.display = "block";
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitBtnDefaultHTML;
+          }
+          if (errorEl) errorEl.style.display = "block";
           console.error("EmailJS error:", error);
         }
       );
+    });
+  };
+
+  if (window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    bindEmailForm({
+      formId: "intakeForm",
+      successId: "intakeSuccess",
+      errorId: "intakeError",
+      templateId: EMAILJS_TEMPLATE_ID_INTAKE
+    });
+
+    bindEmailForm({
+      formId: "grantForm",
+      successId: "grantSuccess",
+      errorId: "grantError",
+      templateId: EMAILJS_TEMPLATE_ID_GRANTS
     });
   }
 

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grants & Micro-Loan Partnerships - Level Plain Pro</title>
+<meta name="description" content="Partnerships with umbrella organizations and donation-accepting partners to support grants and micro-loans for eligible applicants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.18"/>
+  <line x1="14" y1="46" x2="50" y2="46" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="40" cy="42" r="2" fill="#C9A227"/>
+  <path d="M22 14 L22 46 L42 46" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" fill="none"/>
+  <line x1="18" y1="14.5" x2="26" y2="14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+</svg>
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="process.html">How it Works</a>
+        <a href="results.html">Results</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-outline btn-sm">Sign in</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Free Consultation <span class="btn-arrow">-></span></a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+<section class="hero-band page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span><span>Grants</span>
+    </nav>
+    <span class="eyebrow on-dark">Community Funding Access</span>
+    <h1>Grants and micro-loans through trusted <span class="accent">partner organizations</span>.</h1>
+    <p class="lead">We support partnerships with umbrella companies and verified organizations that can accept donations, then route qualified applicants into grant or micro-loan opportunities.</p>
+  </div>
+</section>
+
+<section style="background: var(--bg);">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">Partnership Framework</span>
+      <h2>How partner-led funding works.</h2>
+      <p class="lead">Level Plain Pro coordinates with umbrella entities, nonprofit partners, and social-impact groups that are structured to receive donations and distribute assistance responsibly.</p>
+    </header>
+
+    <div class="cards-3">
+      <article class="feature-card">
+        <h3>Umbrella Company Partnerships</h3>
+        <p>Umbrella partners centralize donor intake, compliance checks, and pooled allocation so funding can be distributed through vetted channels.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Donation-Receiving Organizations</h3>
+        <p>We work with qualifying organizations that can legally accept donations, maintain transparent records, and report funding outcomes.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Grant + Micro-Loan Access</h3>
+        <p>Eligible individuals can be referred to either direct grant support or low-friction micro-loan programs based on need, urgency, and repayment profile.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--white);">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">Funding Pathway</span>
+      <h2>From donation to disbursement.</h2>
+    </header>
+
+    <div class="cards-3">
+      <article class="feature-card">
+        <h3>1. Partner Intake</h3>
+        <p>Partner organizations submit onboarding details for due diligence, governance review, and funding category alignment.</p>
+      </article>
+      <article class="feature-card">
+        <h3>2. Applicant Screening</h3>
+        <p>Applicants are screened for eligibility, documentation readiness, and whether grant support or a micro-loan is the better route.</p>
+      </article>
+      <article class="feature-card">
+        <h3>3. Award or Loan Match</h3>
+        <p>Qualified submissions are matched with available partner funds, and each case receives a transparent decision timeline.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-2);">
+  <div class="container">
+    <div class="intake-grid">
+      <form class="intake" id="grantForm">
+        <h2 style="margin-bottom: 10px; font-size: clamp(22px, 1.2rem + 1vw, 30px);">Grant and Micro-Loan Interest Form</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Use this form if you are an applicant, an umbrella company, or an organization that accepts donations and wants to partner.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="grantType">I am applying as <span style="color: var(--alert-blue);">*</span></label>
+            <select id="grantType" name="grant_type" required>
+              <option value="">Select one...</option>
+              <option>Individual applicant</option>
+              <option>Umbrella company partner</option>
+              <option>Donation-accepting organization</option>
+              <option>Referral partner</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="supportNeeded">Support needed <span style="color: var(--alert-blue);">*</span></label>
+            <select id="supportNeeded" name="support_needed" required>
+              <option value="">Select one...</option>
+              <option>Grant funding</option>
+              <option>Micro-loan</option>
+              <option>Both options</option>
+              <option>Partnership conversation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="grantName">Name <span style="color: var(--alert-blue);">*</span></label>
+            <input type="text" id="grantName" name="user_name" required>
+          </div>
+          <div class="field">
+            <label for="grantEmail">Email <span style="color: var(--alert-blue);">*</span></label>
+            <input type="email" id="grantEmail" name="user_email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="organization">Organization / Umbrella company</label>
+            <select id="organization" name="organization">
+              <option value="">Select organization (optional)...</option>
+              <option>Global Relief Partners</option>
+              <option>Community Impact Network</option>
+              <option>Umbrella Social Trust</option>
+              <option>Hope Bridge Foundation</option>
+              <option>Regional Recovery Alliance</option>
+              <option>Faith and Family Aid Council</option>
+              <option>Urban Small Business Support Fund</option>
+              <option>Youth Empowerment Grant Initiative</option>
+              <option>Women Enterprise Development Circle</option>
+              <option>Other organization (mention in funding purpose)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="requestedAmount">Requested amount</label>
+            <input type="text" id="requestedAmount" name="requested_amount" placeholder="e.g. $5,000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="purpose">What is the intended use of funds? <span style="color: var(--alert-blue);">*</span></label>
+          <textarea id="purpose" name="funding_purpose" required placeholder="Share your funding purpose, timeline, and expected impact."></textarea>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="grantConsent" required>
+          <label for="grantConsent">I confirm that details provided are accurate to the best of my knowledge and I consent to follow-up communication regarding grants and micro-loan opportunities.</label>
+        </div>
+
+        <p id="grantError" class="hint" style="color: var(--alert-blue); display: none; margin-bottom: 12px;">Message not sent. Please try again, or email <a href="mailto:hello@levelplainpro.com" style="color: inherit;">hello@levelplainpro.com</a> directly.</p>
+
+        <div class="intake-actions">
+          <button type="submit" class="btn btn-primary">Submit request <span class="btn-arrow">-></span></button>
+        </div>
+      </form>
+
+      <div id="grantSuccess" class="intake" hidden style="text-align: center;">
+        <div style="display:inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--gold-glow); color: var(--forest); margin-bottom: 18px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2>Submission received.</h2>
+        <p style="color: var(--text-muted); margin-top: 12px;">Thank you. Our partnerships team will review your request and respond with next-step guidance.</p>
+      </div>
+
+      <aside class="reassure" aria-label="Grant and partnership notes">
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"/></svg>
+            Partner verified
+          </div>
+          <h4>Governance first</h4>
+          <p>Every partner route is screened for governance, documentation standards, and disbursement accountability before intake opens.</p>
+        </div>
+
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Timelines
+          </div>
+          <h4>Decision windows</h4>
+          <p>Grant decisions and micro-loan reviews are handled in cycles. Most applicants receive a next update within 5-10 business days.</p>
+        </div>
+
+        <div class="reassure-card">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Need help now
+          </div>
+          <h4>Talk to the team</h4>
+          <p>Email <a href="mailto:hello@levelplainpro.com" style="color: var(--forest); font-weight: 600;">hello@levelplainpro.com</a><br>
+          Call <a href="tel:+12064556551" style="color: var(--forest); font-weight: 600;">+1 206 455 6551</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow on-dark">Partnerships Welcome</span>
+    <h2>Want to become a donation or referral partner?</h2>
+    <p>We are actively onboarding umbrella entities and mission-aligned organizations that can help expand responsible funding access.</p>
+    <div class="final-cta-actions">
+      <a href="#grantForm" class="btn btn-primary">Start partner intake <span class="btn-arrow">-></span></a>
+      <a href="contact.html" class="btn btn-ghost">Book a consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.18"/>
+  <line x1="14" y1="46" x2="50" y2="46" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="40" cy="42" r="2" fill="#C9A227"/>
+  <path d="M22 14 L22 46 L42 46" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" fill="none"/>
+  <line x1="18" y1="14.5" x2="26" y2="14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/>
+</svg>
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+          <p>Stay protected. Subscribe to our weekly scam-alert digest delivered every Tuesday.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services-crypto.html">Crypto Recovery</a></li>
+            <li><a href="services-investment.html">Investment Fraud</a></li>
+            <li><a href="services-wire.html">Wire Transfers</a></li>
+            <li><a href="services-corporate.html">Corporate Recovery</a></li>
+            <li><a href="services-debt.html">Debt Consultation</a></li>
+            <li><a href="grants.html">Grants / Micro-Loans</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Experts</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="about.html#press">Press &amp; Media</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog &amp; Articles</a></li>
+            <li><a href="resources.html#alerts">Scam Alerts</a></li>
+            <li><a href="resources.html#faq">FAQs</a></li>
+            <li><a href="resources.html#glossary">Glossary</a></li>
+            <li><a href="grants.html">Grants Page</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal.html#privacy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms">Terms of Service</a></li>
+            <li><a href="legal.html#confidentiality">Confidentiality</a></li>
+            <li><a href="legal.html#disclaimers">Disclaimers</a></li>
+            <li><a href="legal.html#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>Copyright 2026 Level Plain Pro. All rights reserved. hello@levelplainpro.com +1 206 455 6551</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X / Twitter">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6a4f9c6d8926201d475f4a6f/1jt3fm33r';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+</html>
