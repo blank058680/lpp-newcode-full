@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level Plain Pro — Letterhead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A2B3C;
+    --navy-deep: #0F1C2A;
+    --forest: #1B4332;
+    --gold: #C9A227;
+    --text: #141E2C;
+    --text-muted: #5C6877;
+    --border: #E2E0D8;
+    --bg: #FAFAF7;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: #DAD8D0; /* neutral surround so the page edge is visible on screen */
+    font-family: var(--sans);
+    color: var(--text);
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 24px auto;
+    background: #fff;
+    padding: 0.75in;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,.14);
+  }
+
+  /* ---------- Header ---------- */
+  .letterhead-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand img { display: block; height: 40px; width: auto; }
+
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+
+  .brand-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+  }
+
+  .brand-name em { font-style: italic; font-weight: 400; color: var(--forest); }
+
+  .brand-tagline {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .header-contact {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .header-contact strong { color: var(--navy); }
+
+  /* ---------- Body ---------- */
+  .letter-body {
+    flex: 1;
+    padding-top: 40px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .letter-date { margin-bottom: 28px; color: var(--text-muted); }
+
+  .letter-recipient { margin-bottom: 24px; }
+  .letter-recipient div { margin-bottom: 2px; }
+
+  .letter-salutation { margin-bottom: 16px; }
+
+  .letter-body p { margin: 0 0 14px; }
+
+  .letter-signoff { margin-top: 32px; }
+  .letter-signoff .signature-space { height: 56px; }
+  .letter-signoff .signer-name { font-weight: 700; color: var(--navy); }
+  .letter-signoff .signer-title { color: var(--text-muted); font-size: 12px; }
+
+  /* ---------- Footer ---------- */
+  .letterhead-footer {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .letterhead-footer .gold-dot { color: var(--gold); margin: 0 6px; }
+
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      width: auto;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    @page { size: letter; margin: 0.75in; }
+  }
+</style>
+</head>
+<body>
+
+<!--
+  LEVEL PLAIN PRO — STATIC LETTERHEAD TEMPLATE
+  =============================================
+  How to use:
+  - Edit the placeholder text inside .letter-body (date, recipient, salutation,
+    paragraphs, sign-off) for each letter.
+  - Print to PDF (Cmd/Ctrl+P > Save as PDF) using default margins — @page is
+    already set to Letter size with 0.75in margins for a clean export.
+  - The logo path below is relative (../assets/logo-mark.png), which works when
+    this file stays inside templates/ in this repo. If distributing standalone,
+    replace with an absolute/hosted URL.
+-->
+
+<div class="page">
+
+  <header class="letterhead-header">
+    <div class="brand">
+      <img src="../assets/logo-mark.png" alt="Level Plain Pro">
+      <div class="brand-text">
+        <span class="brand-name">Level Plain <em>Pro</em></span>
+        <span class="brand-tagline">Financial Recovery</span>
+      </div>
+    </div>
+    <div class="header-contact">
+      <div>700 5th Ave, Seattle, WA 98104, USA</div>
+      <div><strong>+1 206 455 6551</strong> &nbsp;·&nbsp; hello@levelplainpro.com</div>
+      <div>levelplainpro.com</div>
+    </div>
+  </header>
+
+  <main class="letter-body">
+    <div class="letter-date">[Month Day, Year]</div>
+
+    <div class="letter-recipient">
+      <div>[Recipient Name]</div>
+      <div>[Recipient Title / Organization]</div>
+      <div>[Address Line 1]</div>
+      <div>[City, State ZIP]</div>
+    </div>
+
+    <div class="letter-salutation">Dear [Recipient Name],</div>
+
+    <p>[Opening paragraph — state the purpose of the letter.]</p>
+    <p>[Supporting paragraph — details, context, or next steps.]</p>
+    <p>[Closing paragraph — call to action or summary.]</p>
+
+    <div class="letter-signoff">
+      <p>Sincerely,</p>
+      <div class="signature-space"></div>
+      <div class="signer-name">[Signer Name]</div>
+      <div class="signer-title">[Signer Title], Level Plain Pro</div>
+    </div>
+  </main>
+
+  <footer class="letterhead-footer">
+    <span>Level Plain Pro &nbsp;·&nbsp; 700 5th Ave, Seattle, WA 98104, USA</span>
+    <span>Confidential &amp; Privileged Correspondence</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
