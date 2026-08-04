@@ -37,14 +37,10 @@
     });
   }
 
-  // EmailJS config — replace template IDs with your own values from emailjs.com.
-  // This keeps one shared account/service and allows separate templates by form type.
-  var EMAILJS_PUBLIC_KEY = "IEaD9FOwZLGmobTWZ";
-  var EMAILJS_SERVICE_ID = "service_c65y2pz";
-  var EMAILJS_TEMPLATE_ID_INTAKE = "template_xhdhiti";
-  var EMAILJS_TEMPLATE_ID_GRANTS = "template_yuofq12";
-
-  var bindEmailForm = function (config) {
+  // Forms submit to Formspree (https://formspree.io) via the form's own action URL.
+  // JS here just upgrades the submit to AJAX so we can show the inline success/error
+  // states instead of a full-page redirect; the form still works without JS.
+  var bindFormspreeForm = function (config) {
     var form = document.getElementById(config.formId);
     if (!form) return;
 
@@ -61,40 +57,36 @@
         submitBtn.textContent = "Sending...";
       }
 
-      emailjs.sendForm(EMAILJS_SERVICE_ID, config.templateId, form).then(
-        function () {
-          if (successEl) successEl.hidden = false;
-          form.hidden = true;
-        },
-        function (error) {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = submitBtnDefaultHTML;
-          }
-          if (errorEl) errorEl.style.display = "block";
-          console.error("EmailJS error:", error);
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Formspree responded with " + response.status);
+        if (successEl) successEl.hidden = false;
+        form.hidden = true;
+      }).catch(function (error) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitBtnDefaultHTML;
         }
-      );
+        if (errorEl) errorEl.style.display = "block";
+        console.error("Formspree error:", error);
+      });
     });
   };
 
-  if (window.emailjs) {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  bindFormspreeForm({
+    formId: "intakeForm",
+    successId: "intakeSuccess",
+    errorId: "intakeError"
+  });
 
-    bindEmailForm({
-      formId: "intakeForm",
-      successId: "intakeSuccess",
-      errorId: "intakeError",
-      templateId: EMAILJS_TEMPLATE_ID_INTAKE
-    });
-
-    bindEmailForm({
-      formId: "grantForm",
-      successId: "grantSuccess",
-      errorId: "grantError",
-      templateId: EMAILJS_TEMPLATE_ID_GRANTS
-    });
-  }
+  bindFormspreeForm({
+    formId: "grantForm",
+    successId: "grantSuccess",
+    errorId: "grantError"
+  });
 
   var caseStories = {
     "1": {
