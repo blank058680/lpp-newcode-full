@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Case — Level Plain Pro</title>
+<meta name="description" content="Track your recovery case, see updates from your team, and exchange documents securely.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="Level Plain Pro logo">
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="process.html">How it Works</a>
+        <a href="results.html">Results</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-cta">
+        <span id="clientEmail" style="font-size: 13px; color: var(--text-muted);"></span>
+        <button id="signOutBtn" class="btn btn-outline btn-sm" type="button">Sign out</button>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+<section class="hero-band page-hero">
+  <div class="container container-narrow" style="margin-inline:auto;">
+    <span class="eyebrow on-dark">Client Portal</span>
+    <h1>Your <span class="accent">case</span>.</h1>
+    <p class="lead">Status, updates from your team, and documents — all in one place.</p>
+  </div>
+</section>
+
+<section style="background: var(--bg);">
+  <div class="container container-narrow">
+
+    <div id="portalLoading" class="intake" style="text-align:center;">
+      <p style="color: var(--text-muted);">Loading your case…</p>
+    </div>
+
+    <div id="portalNoCase" class="intake" hidden style="text-align:center;">
+      <h2>No case on file yet</h2>
+      <p style="color: var(--text-muted); margin-top: 12px;">Your account is set up, but we haven't linked a case to it yet. Email <a href="mailto:hello@levelplainpro.com" style="color: var(--forest); font-weight: 600;">hello@levelplainpro.com</a> and we'll get this sorted.</p>
+    </div>
+
+    <div id="portalContent" hidden>
+
+      <div class="intake" style="margin-bottom: 24px;">
+        <span class="case-tag" id="caseStageTag">Case in progress</span>
+        <h2 id="caseNumberHeading" style="margin: 10px 0 4px; font-size: clamp(22px, 1.2rem + 1vw, 30px);">Case —</h2>
+        <p id="caseTypeText" style="color: var(--text-muted); margin-bottom: 20px;"></p>
+
+        <div class="case-progress" style="margin-bottom: 28px;">
+          <div class="case-progress-bar"><span class="case-progress-fill" id="caseProgressFill"></span></div>
+          <div class="case-progress-meta" style="color: var(--text-muted);"><span>Assessment</span><span>Investigation</span><span>Recovery</span></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Amount</label>
+            <p id="caseAmount" style="font-weight:600; color: var(--navy); font-size: 15px;">—</p>
+          </div>
+          <div class="field">
+            <label>Jurisdictions</label>
+            <p id="caseJurisdictions" style="font-weight:600; color: var(--navy); font-size: 15px;">—</p>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Funds traced</label>
+            <p id="caseFundsTraced" style="font-weight:600; color: var(--navy); font-size: 15px;">—</p>
+          </div>
+          <div class="field">
+            <label>Last update</label>
+            <p id="caseLastUpdate" style="font-weight:600; color: var(--navy); font-size: 15px;">—</p>
+          </div>
+        </div>
+        <p id="caseSummaryText" style="margin-top: 4px; color: var(--text); line-height: 1.6;"></p>
+      </div>
+
+      <div class="intake" style="margin-bottom: 24px;">
+        <h3 style="margin-bottom: 4px; font-size: 18px;">Updates from your team</h3>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">Posted by your case team as things progress.</p>
+        <div id="updatesList"><p style="color: var(--text-muted); font-size: 14px; padding-top: 12px;">No updates yet.</p></div>
+      </div>
+
+      <div class="intake">
+        <h3 style="margin-bottom: 16px; font-size: 18px;">Documents</h3>
+        <div id="documentsList" style="margin-bottom: 8px;"><p style="color: var(--text-muted); font-size: 14px;">No documents yet.</p></div>
+
+        <form id="uploadForm" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+          <div class="field">
+            <label for="uploadFile">Upload a document</label>
+            <input type="file" id="uploadFile" name="file" required>
+            <span class="hint">Shared securely — only you and your case team can see it.</span>
+          </div>
+          <p id="uploadError" class="hint" style="color: var(--alert-blue); display:none; margin-bottom: 12px;"></p>
+          <div class="intake-actions">
+            <button type="submit" class="btn btn-primary">Upload <span class="btn-arrow">→</span></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="Level Plain Pro logo">
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+          <p>Stay protected. Subscribe to our weekly scam-alert digest delivered every Tuesday.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services-crypto.html">Crypto Recovery</a></li>
+            <li><a href="services-investment.html">Investment Fraud</a></li>
+            <li><a href="services-wire.html">Wire Transfers</a></li>
+            <li><a href="services-corporate.html">Corporate Recovery</a></li>
+            <li><a href="services-debt.html">Debt Consultation</a></li>
+            <li><a href="grants.html">Grants / Micro-Loans</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Experts</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="about.html#press">Press &amp; Media</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog &amp; Articles</a></li>
+            <li><a href="resources.html#alerts">Scam Alerts</a></li>
+            <li><a href="resources.html#faq">FAQs</a></li>
+            <li><a href="resources.html#glossary">Glossary</a></li>
+            <li><a href="contact.html">Free Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal.html#privacy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms">Terms of Service</a></li>
+            <li><a href="legal.html#confidentiality">Confidentiality</a></li>
+            <li><a href="legal.html#disclaimers">Disclaimers</a></li>
+            <li><a href="legal.html#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>© 2026 Level Plain Pro. All rights reserved. · 700 5th Ave, Seattle, WA 98104, USA · hello@levelplainpro.com · +1 206 455 6551</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X / Twitter">X / Twitter</a>
+          <a href="https://www.instagram.com/levelplainpro?igsh=dXl6MWhsa3JkODgy&amp;utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+
+<script>
+(function () {
+  "use strict";
+  var sb = window.lppSupabase;
+
+  var loadingEl = document.getElementById("portalLoading");
+  var noCaseEl = document.getElementById("portalNoCase");
+  var contentEl = document.getElementById("portalContent");
+  var clientEmailEl = document.getElementById("clientEmail");
+  var signOutBtn = document.getElementById("signOutBtn");
+
+  var STAGE_LABELS = { assessment: "Assessment", investigation: "Investigation", recovery: "Recovery", resolved: "Resolved" };
+  var STAGE_FILL = { assessment: "16%", investigation: "50%", recovery: "84%", resolved: "100%" };
+
+  function formatDate(iso) {
+    if (!iso) return "—";
+    var d = new Date(iso);
+    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement("div");
+    div.textContent = str == null ? "" : String(str);
+    return div.innerHTML;
+  }
+
+  function renderCase(c) {
+    document.getElementById("caseStageTag").textContent = STAGE_LABELS[c.stage] || c.stage;
+    document.getElementById("caseNumberHeading").textContent = "Case " + c.case_number;
+    document.getElementById("caseTypeText").textContent = c.case_type || "";
+    document.getElementById("caseProgressFill").style.width = STAGE_FILL[c.stage] || "16%";
+    document.getElementById("caseAmount").textContent = c.amount || "—";
+    document.getElementById("caseJurisdictions").textContent = c.jurisdictions || "—";
+    document.getElementById("caseFundsTraced").textContent = c.funds_traced || "—";
+    document.getElementById("caseLastUpdate").textContent = formatDate(c.updated_at);
+    document.getElementById("caseSummaryText").textContent = c.summary || "";
+  }
+
+  function renderUpdates(updates) {
+    if (!updates.length) return;
+    var list = document.getElementById("updatesList");
+    list.innerHTML = "";
+    updates.forEach(function (u) {
+      var item = document.createElement("div");
+      item.style.cssText = "padding: 14px 0; border-top: 1px solid var(--border);";
+      item.innerHTML =
+        '<div style="display:flex; justify-content:space-between; gap:12px; font-size:12px; color:var(--text-muted); margin-bottom:6px;">' +
+          '<span style="font-weight:600; color:var(--forest);">' + escapeHtml(u.author) + '</span>' +
+          '<span>' + formatDate(u.created_at) + '</span>' +
+        '</div>' +
+        '<p style="color: var(--text); line-height:1.6;">' + escapeHtml(u.note) + '</p>';
+      list.appendChild(item);
+    });
+  }
+
+  function renderDocuments(docs) {
+    if (!docs.length) return Promise.resolve();
+    var list = document.getElementById("documentsList");
+    list.innerHTML = "";
+
+    var signedUrlPromises = docs.map(function (doc) {
+      return sb.storage.from("case-documents").createSignedUrl(doc.file_path, 3600);
+    });
+
+    return Promise.all(signedUrlPromises).then(function (results) {
+      docs.forEach(function (doc, i) {
+        var url = (results[i].data && results[i].data.signedUrl) || "#";
+        var row = document.createElement("div");
+        row.style.cssText = "display:flex; justify-content:space-between; align-items:center; padding: 12px 0; border-top: 1px solid var(--border);";
+        row.innerHTML =
+          '<div>' +
+            '<a href="' + url + '" target="_blank" rel="noopener" style="color:var(--navy); font-weight:600;">' + escapeHtml(doc.file_name) + '</a>' +
+            '<div style="font-size:12px; color:var(--text-muted); margin-top:2px;">' + (doc.uploaded_by === "staff" ? "Shared by your team" : "Uploaded by you") + ' · ' + formatDate(doc.created_at) + '</div>' +
+          '</div>';
+        list.appendChild(row);
+      });
+    });
+  }
+
+  function setupUpload(caseId) {
+    var form = document.getElementById("uploadForm");
+    var errorEl = document.getElementById("uploadError");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      errorEl.style.display = "none";
+      var fileInput = document.getElementById("uploadFile");
+      var file = fileInput.files[0];
+      if (!file) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var defaultHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Uploading...";
+
+      var path = caseId + "/" + Date.now() + "-" + file.name;
+
+      sb.storage.from("case-documents").upload(path, file).then(function (uploadResult) {
+        if (uploadResult.error) {
+          errorEl.textContent = "Upload failed. Please try again.";
+          errorEl.style.display = "block";
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultHTML;
+          return;
+        }
+
+        sb.from("documents").insert({
+          case_id: caseId,
+          file_path: path,
+          file_name: file.name,
+          uploaded_by: "client"
+        }).then(function () {
+          window.location.reload();
+        });
+      });
+    });
+  }
+
+  signOutBtn.addEventListener("click", function () {
+    sb.auth.signOut().then(function () {
+      window.location.href = "client-login.html";
+    });
+  });
+
+  sb.auth.getSession().then(function (sessionResult) {
+    var session = sessionResult.data && sessionResult.data.session;
+    if (!session) {
+      window.location.href = "client-login.html";
+      return;
+    }
+
+    clientEmailEl.textContent = session.user.email;
+
+    sb.from("cases")
+      .select("*")
+      .eq("client_id", session.user.id)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle()
+      .then(function (caseResult) {
+        if (caseResult.error || !caseResult.data) {
+          loadingEl.hidden = true;
+          noCaseEl.hidden = false;
+          return;
+        }
+
+        var theCase = caseResult.data;
+        renderCase(theCase);
+
+        var updatesPromise = sb.from("case_updates").select("*").eq("case_id", theCase.id).order("created_at", { ascending: false });
+        var docsPromise = sb.from("documents").select("*").eq("case_id", theCase.id).order("created_at", { ascending: false });
+
+        Promise.all([updatesPromise, docsPromise]).then(function (results) {
+          var updatesResult = results[0];
+          var docsResult = results[1];
+
+          renderUpdates(updatesResult.data || []);
+
+          renderDocuments(docsResult.data || []).then(function () {
+            setupUpload(theCase.id);
+            loadingEl.hidden = true;
+            contentEl.hidden = false;
+          });
+        });
+      });
+  });
+})();
+</script>
+</body>
+</html>

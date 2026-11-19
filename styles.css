@@ -634,6 +634,12 @@ section { padding-block: clamp(56px, 7vw, 112px); }
 .reassure-card .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 6px; }
 .reassure-card .badge svg { width: 14px; height: 14px; color: var(--forest); }
 
+/* --------------------------- CLIENT PORTAL ---------------------- */
+/* .case-tag / .case-progress-bar were built for the dark hero card;
+   lighten them when reused inside a white .intake card on the portal. */
+.intake .case-tag { color: var(--forest); background: var(--gold-glow); border-color: rgba(201,162,39,.35); }
+.intake .case-progress-bar { background: var(--bg-3); }
+
 /* --------------------------- GENERIC GRID ---------------------- */
 .cards-3 { display: grid; gap: var(--s-5); grid-template-columns: repeat(3, 1fr); }
 .cards-4 { display: grid; gap: var(--s-4); grid-template-columns: repeat(4, 1fr); }

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Client Sign In — Level Plain Pro</title>
+<meta name="description" content="Sign in to your Level Plain Pro client portal to track your recovery case.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="Level Plain Pro logo">
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="process.html">How it Works</a>
+        <a href="results.html">Results</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="client-login.html" class="btn btn-outline btn-sm" aria-current="page">Sign in</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Free Consultation <span class="btn-arrow">→</span></a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+<section class="hero-band page-hero">
+  <div class="container container-narrow" style="margin-inline:auto; text-align:center;">
+    <span class="eyebrow on-dark">Client Portal</span>
+    <h1>Sign in to track <span class="accent">your case</span>.</h1>
+    <p class="lead">Live case status, updates from your team, and secure document exchange in one place.</p>
+  </div>
+</section>
+
+<section style="background: var(--bg);">
+  <div class="container container-narrow" style="max-width: 460px;">
+
+    <form class="intake" id="loginForm">
+      <h2 style="margin-bottom: 6px; font-size: clamp(20px, 1rem + 1vw, 26px);">Welcome back</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Enter the email and password your team set up for your portal access.</p>
+
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email" required autocomplete="username">
+      </div>
+
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+      </div>
+
+      <p id="loginError" class="hint" style="color: var(--alert-blue); display: none; margin-bottom: 12px;"></p>
+
+      <div class="intake-actions" style="justify-content: space-between; align-items: center;">
+        <button type="button" id="forgotLink" style="background:none; border:none; padding:0; font-size: 13px; color: var(--text-muted); text-decoration: underline; cursor: pointer;">Forgot password?</button>
+        <button type="submit" class="btn btn-primary">Sign in <span class="btn-arrow">→</span></button>
+      </div>
+    </form>
+
+    <form class="intake" id="forgotForm" hidden>
+      <h2 style="margin-bottom: 6px; font-size: clamp(20px, 1rem + 1vw, 26px);">Reset your password</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">We'll email you a link to set a new password.</p>
+
+      <div class="field">
+        <label for="forgotEmail">Email</label>
+        <input type="email" id="forgotEmail" name="email" required autocomplete="username">
+      </div>
+
+      <p id="forgotError" class="hint" style="color: var(--alert-blue); display: none; margin-bottom: 12px;"></p>
+
+      <div class="intake-actions" style="justify-content: space-between; align-items: center;">
+        <button type="button" id="backToLogin" style="background:none; border:none; padding:0; font-size: 13px; color: var(--text-muted); text-decoration: underline; cursor: pointer;">Back to sign in</button>
+        <button type="submit" class="btn btn-primary">Send reset link <span class="btn-arrow">→</span></button>
+      </div>
+    </form>
+
+    <div id="forgotSuccess" class="intake" hidden style="text-align: center;">
+      <div style="display:inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--gold-glow); color: var(--forest); margin-bottom: 18px;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2>Check your email</h2>
+      <p style="color: var(--text-muted); margin-top: 12px;">If that address has portal access, a reset link is on its way.</p>
+    </div>
+
+    <p style="text-align:center; font-size: 13px; color: var(--text-muted); margin-top: 20px;">
+      Don't have portal access yet? <a href="contact.html" style="color: var(--forest); font-weight: 600;">Start your case</a> and we'll set you up.
+    </p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Level Plain Pro home">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="Level Plain Pro logo">
+      <span class="logo-text">
+        <span class="logo-name">Level Plain <em>Pro</em></span>
+        <span class="logo-tagline">FINANCIAL RECOVERY</span>
+      </span>
+    </a>
+          <p>Stay protected. Subscribe to our weekly scam-alert digest delivered every Tuesday.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services-crypto.html">Crypto Recovery</a></li>
+            <li><a href="services-investment.html">Investment Fraud</a></li>
+            <li><a href="services-wire.html">Wire Transfers</a></li>
+            <li><a href="services-corporate.html">Corporate Recovery</a></li>
+            <li><a href="services-debt.html">Debt Consultation</a></li>
+            <li><a href="grants.html">Grants / Micro-Loans</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Experts</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="about.html#press">Press &amp; Media</a></li>
+            <li><a href="about.html#careers">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog &amp; Articles</a></li>
+            <li><a href="resources.html#alerts">Scam Alerts</a></li>
+            <li><a href="resources.html#faq">FAQs</a></li>
+            <li><a href="resources.html#glossary">Glossary</a></li>
+            <li><a href="contact.html">Free Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal.html#privacy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms">Terms of Service</a></li>
+            <li><a href="legal.html#confidentiality">Confidentiality</a></li>
+            <li><a href="legal.html#disclaimers">Disclaimers</a></li>
+            <li><a href="legal.html#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>© 2026 Level Plain Pro. All rights reserved. · 700 5th Ave, Seattle, WA 98104, USA · hello@levelplainpro.com · +1 206 455 6551</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="X / Twitter">X / Twitter</a>
+          <a href="https://www.instagram.com/levelplainpro?igsh=dXl6MWhsa3JkODgy&amp;utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  var loginForm = document.getElementById("loginForm");
+  var forgotForm = document.getElementById("forgotForm");
+  var forgotSuccess = document.getElementById("forgotSuccess");
+  var forgotLink = document.getElementById("forgotLink");
+  var backToLogin = document.getElementById("backToLogin");
+  var loginError = document.getElementById("loginError");
+  var forgotError = document.getElementById("forgotError");
+
+  // If already signed in, skip straight to the portal.
+  window.lppSupabase.auth.getSession().then(function (result) {
+    if (result.data && result.data.session) {
+      window.location.href = "client-portal.html";
+    }
+  });
+
+  forgotLink.addEventListener("click", function () {
+    loginForm.hidden = true;
+    forgotForm.hidden = false;
+  });
+
+  backToLogin.addEventListener("click", function () {
+    forgotForm.hidden = true;
+    loginForm.hidden = false;
+  });
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    loginError.style.display = "none";
+    var submitBtn = loginForm.querySelector('button[type="submit"]');
+    var defaultHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Signing in...";
+
+    window.lppSupabase.auth.signInWithPassword({
+      email: document.getElementById("loginEmail").value.trim(),
+      password: document.getElementById("loginPassword").value
+    }).then(function (result) {
+      if (result.error) {
+        loginError.textContent = "Incorrect email or password. Please try again, or use \"Forgot password?\" below.";
+        loginError.style.display = "block";
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = defaultHTML;
+        return;
+      }
+      window.location.href = "client-portal.html";
+    });
+  });
+
+  forgotForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    forgotError.style.display = "none";
+    var submitBtn = forgotForm.querySelector('button[type="submit"]');
+    var defaultHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    window.lppSupabase.auth.resetPasswordForEmail(
+      document.getElementById("forgotEmail").value.trim(),
+      { redirectTo: window.location.origin + "/client-set-password.html" }
+    ).then(function (result) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = defaultHTML;
+      if (result.error) {
+        forgotError.textContent = "Something went wrong. Please try again.";
+        forgotError.style.display = "block";
+        return;
+      }
+      forgotForm.hidden = true;
+      forgotSuccess.hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
